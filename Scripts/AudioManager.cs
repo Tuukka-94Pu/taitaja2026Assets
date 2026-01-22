@@ -45,6 +45,7 @@ public class AudioManager : MonoBehaviour
             }
         }
         Debug.LogWarning("Sound named " + soundName + " not found!");
+        //use: AudioManager.instance.PlaySound(soundName);
     }
 
     public void PlayMusic(string musicName)
@@ -61,5 +62,38 @@ public class AudioManager : MonoBehaviour
             }
         }
         Debug.LogWarning("Music track named " + musicName + " not found!");
+        //use: AudioManager.instance.PlayMusic(musicName);
+    }
+
+    public void PauseMusic()
+    {
+        if (musicSource.isPlaying)
+        {
+            musicSource.Pause();
+        }
+        //use: AudioManager.instance.PauseMusic();
+    }
+
+    public void ResumeMusic()
+    {
+        if (!musicSource.isPlaying)
+        {
+            musicSource.UnPause();
+        }
+        //use: AudioManager.instance.ResumeMusic();
+    }
+
+    public void SetSoundVolume(float volume)
+    {
+        volume = Mathf.Clamp01(volume);
+        soundSource.volume = volume;
+        //use: AudioManager.instance.SetSoundVolume(volumeAmount);
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        volume = Mathf.Clamp01(volume);
+        musicSource.volume = volume;
+        //use: AudioManager.instance.SetMusicVolume(volumeAmount);
     }
 }
