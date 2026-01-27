@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class cameraShake : MonoBehaviour
@@ -13,12 +14,29 @@ public class cameraShake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+      
         if(player.transform.hasChanged)
         {
             transform.localPosition = Random.insideUnitSphere * 0.02f;
             player.transform.hasChanged = false;
         }       
        
+    }
+    public void ShakeMethod(float strenght)
+    {
+        //A method other scripts can call
+        transform.localPosition = Random.insideUnitSphere * strenght;
+        StartCoroutine(wait(strenght));
+    }
+    private IEnumerator wait(float value)
+    {
+        yield return new WaitForSeconds(0.1f);
+        transform.localPosition = Random.insideUnitSphere * value;
+        yield return new WaitForSeconds(0.1f);
+        transform.localPosition = Random.insideUnitSphere * value;
+        yield return new WaitForSeconds(0.1f);
+        transform.localPosition = Random.insideUnitSphere * value;
+        yield return new WaitForSeconds(0.1f);
+        transform.position = new Vector3(0, 0 , -10);
     }
 }
