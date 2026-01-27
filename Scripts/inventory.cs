@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.Multiplayer.Center.Common.Analytics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,7 +21,7 @@ public class inventory : MonoBehaviour
         //Replace with different code if needed!!
         if(Input.GetKeyDown(KeyCode.E))
         {
-            useCase(interaction);
+             useCase(interaction);
         }
     }
 
@@ -33,13 +32,14 @@ public class inventory : MonoBehaviour
         {
             if (inventoryContents.Count < 1)
             {
-
+                Debug.Log("Pickd up");
                 var itemName = collision.gameObject.GetComponent<item_data>().item_name;
                 var icon = collision.gameObject.GetComponent<item_data>().item_texture;
-
-                    inventoryContents.Add(itemName, icon);
-                    interaction = interactiontype(itemName);
-                    Destroy(collision.gameObject);
+                var particle = GameObject.Find("particleManager").GetComponent<particleManager>();
+                particle.SpawnParticle("test2", collision.transform); // Replace test2 with correct particle name
+                inventoryContents.Add(itemName, icon);
+                interaction = interactiontype(itemName);
+                Destroy(collision.gameObject);
                 
             }
         }
@@ -55,6 +55,8 @@ public class inventory : MonoBehaviour
          //Add cases for all item names
         switch(name)
         {
+            case "heart":
+                return "heal";
             default:
                 return null;
         }
@@ -65,7 +67,12 @@ public class inventory : MonoBehaviour
         //add methods for all different interaction outcomes
         switch(intercation)
         {
-           
+
+            case "heal":
+                inventoryContents.Clear();
+                Debug.Log("Health restored");
+                break;
+
              default :
                 TEST();
                 break;
