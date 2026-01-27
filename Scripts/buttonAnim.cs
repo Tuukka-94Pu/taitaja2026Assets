@@ -16,13 +16,11 @@ public class buttonAnim : MonoBehaviour, IPointerEnterHandler , IPointerExitHand
     }
     public void OnPointerEnter(PointerEventData idk)
     {
-        Debug.Log("Pointer entered");
         StartCoroutine(UpscaleWait());
     }
 
     public void OnPointerExit(PointerEventData idk)
     {
-        Debug.Log("Ponter leaved");
         StartCoroutine(DownscaleWait());
     }
     private IEnumerator DownscaleWait()
