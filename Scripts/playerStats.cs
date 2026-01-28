@@ -31,4 +31,12 @@ public class playerStats : MonoBehaviour
     {
         //Do death things
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("stageHazard"))
+        {
+            takeDamage(10);
+        }
+    }
 }
