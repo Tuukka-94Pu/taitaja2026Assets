@@ -12,13 +12,16 @@ public class buttonLogic : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1.0f;
     }
     public void ReturnToMain()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1.0f;
     }
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1.0f;
     }
 }
