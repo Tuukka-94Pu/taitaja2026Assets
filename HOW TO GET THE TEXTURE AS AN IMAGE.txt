@@ -1,0 +1,5 @@
+HOW TO GET THE TEXTURE AS AN IMAGE
+UV unwrap mesh
+tekstuuriin image texture (copy paste sama muihin mahd. tekstuureihin) valihe ne kaikki
+bake
+lataa tekstuuri hampurilaisest
