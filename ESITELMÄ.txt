@@ -1,0 +1,11 @@
+ESITELMÄ
+
+1. nimi
+2. main idea
+3. Key mechanics
+4. Obstacles / challenges
+5. Win / fail states
+6. Gameplay loop (graph)
+7. Art style (pictures, sprites, screenshots)
+8. Future plans
+9. Thank you!
